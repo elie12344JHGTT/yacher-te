@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pourquoi</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+     <footer>
+      <div class="footer-container">
+        <!-- Logo et description -->
+        <div class="footer-section">
+          <h2 class="logo">Yacher te</h2>
+          <p>Trouvez facilement vos marques préférées chez plus de 4500 marchands.</p>
+        </div>
+
+        <!-- Liens rapides -->
+        <div class="footer-section">
+          <h3>Liens utiles</h3>
+          <ul>
+            <li><a href="{{ url_for('pourquoi') }}">Pourquoi nous choisir ?</a></li>
+            <li><a href="{{ url_for('fonctionnement') }}">Notre fonctionnement</a></li>
+            <li><a href="{{ url_for('nouveaux_clients') }}">Nouveaux clients</a></li>
+          </ul>
+        </div>
+
+        <!-- Réseaux sociaux -->
+        <div class="footer-section">
+          <h3>Suivez-nous</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Yacher te. Tous droits réservés.</p>
+      </div>
+    </footer>
+</body>
+</html>

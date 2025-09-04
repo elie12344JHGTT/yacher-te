@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Yacher te</title>
+     <!--Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar">
+        <a class="logo" href="{{ url_for('home') }}">Yacher te</a>
+        <div class="nav-options">
+
+            <!-- Menu Catégorie -->
+            <div class="nav-item dropdown">
+                <span class="dropbtn">Catégorie</span>
+                <div class="dropdown-content">
+                    <a href="#" onclick="submitCategory('Voyage')">Voyage</a>
+                    <a href="#" onclick="submitCategory('Habillement')">Habillement</a>
+                    <a href="#" onclick="submitCategory('Location de maison')">Location de maison</a>
+                    <a href="#" onclick="submitCategory('Appareil électroménager')">Appareil électroménager</a>
+                </div>
+            </div>
+
+            <!-- Contactez-nous -->
+            <div class="nav-item">
+                <a href="{{ url_for('nouveaux_clients') }}">Contactez-nous</a>
+            </div>
+
+            <!-- Menu Langue -->
+            <div class="nav-item dropdown">
+                <span class="dropbtn">Langue</span>
+                <div class="dropdown-content">
+                    <a href="#">FR</a>
+                    <a href="#">EN</a>
+                </div>
+            </div>
+
+            <!-- Connexion / Déconnexion -->
+            <div class="nav-item">
+                <select name="auth">
+                    <option value="login">Connexion</option>
+                    <option value="logout">Déconnexion</option>
+                </select>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Contenu principal -->
+    <main>
+      <div class="hero">
+        <h1>Yacher te</h1>
+        <p>Trouvez facilement vos produits préférés chez des milliers de vendeurs</p>
+
+        <div class="search-box">
+          <form id="searchForm" action="{{ url_for('resultat') }}" method="POST">
+              <input type="text" name="query" placeholder="Cherchez un produit, une marque, une référence ..." required>
+              <input type="hidden" name="category" id="categoryInput">
+              <button type="submit"><i class="fas fa-search"></i></button>
+          </form>
+          <script>
+            function submitCategory(cat) {
+                document.querySelector('#searchForm input[name="query"]').value = cat;
+                document.querySelector('#categoryInput').value = cat;
+                document.querySelector('#searchForm').submit();
+            }
+          </script>
+        </div>
+      </div>
+
+
+      <section class="features">
+        <div class="feature">
+          <i class="fas fa-search"></i>
+          <h3>Cherchez</h3>
+          <p>Trouvez votre coup de cœur en comparant les prix de milliers de vendeurs en un seul endroit.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fas fa-shopping-cart"></i>
+          <h3>Commandez</h3>
+          <p>Commandez facilement en choisissant votre marchand préféré au prix le plus bas.</p>
+        </div>
+
+        <div class="feature">
+          <i class="fas fa-smile"></i>
+          <h3>Profitez</h3>
+          <p>Profitez de vos achats en sachant que vous avez trouvé le meilleur prix.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <!-- Logo et description -->
+        <div class="footer-section">
+          <h2 class="logo">Yacher te</h2>
+          <p>Trouvez facilement vos marques préférées chez plus de 4500 marchands.</p>
+        </div>
+
+        <!-- Liens rapides -->
+        <div class="footer-section">
+          <h3>Liens utiles</h3>
+          <ul>
+            <li><a href="{{ url_for('pourquoi') }}">Pourquoi nous choisir ?</a></li>
+            <li><a href="{{ url_for('fonctionnement') }}">Notre fonctionnement</a></li>
+            <li><a href="{{ url_for('nouveaux_clients') }}">Nouveaux clients</a></li>
+          </ul>
+        </div>
+
+        <!-- Réseaux sociaux -->
+        <div class="footer-section">
+          <h3>Suivez-nous</h3>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Yacher te. Tous droits réservés.</p>
+      </div>
+    </footer>
+</body>
+</html>

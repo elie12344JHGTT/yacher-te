@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultats de recherche - Yacher te</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='resultat.css') }}">
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <main class="results-page">
+        <h1>Résultats de recherche pour "<span>{{ query }}</span>"</h1>
+        <p class="results-info">Résultats en direct</p>
+
+        <div class="results-layout">
+            <!-- Bouton toggle pour mobile -->
+            <button class="filters-toggle" id="toggle-filters">
+                <i class="fas fa-sliders-h"></i> Filtres
+            </button>
+
+            <!-- Filtres -->
+            <aside class="filters">
+                <h3><i class="fas fa-sliders-h"></i> Filtres</h3>
+                <div class="filter-group">
+                    <label for="filter-price">Prix</label>
+                    <select id="filter-price">
+                        <option value="0-20">0 à 20 €</option>
+                        <option value="20-50">20 à 50 €</option>
+                        <option value="50-100">50 à 100 €</option>
+                        <option value="100-200">100 à 200 €</option>
+                        <option value="200-300">200 à 300 €</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-brand">Marque</label>
+                    <select id="filter-brand">
+                        <option>Microsoft</option>
+                        <option>Apple</option>
+                        <option>Nike</option>
+                        <option>Adidas</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-merchant">Marchand</label>
+                    <select id="filter-merchant">
+                        <option>Ebay</option>
+                        <option>Kikuu</option>
+                        <option>Banggood</option>
+                    </select>
+                </div>
+            </aside>
+
+            <!-- Résultats + loader -->
+            <section class="results-section">
+                <div class="section-loader" id="loader">
+                    <div class="spinner"></div>
+                    <p>Recherche en cours...</p>
+                </div>
+
+                <section class="results-list" id="results-list">
+                    <!-- 9 placeholders visibles pour stabiliser la grille -->
+                    {% for _ in range(9) %}
+                        <div class="product-card placeholder">
+                            <div class="img-placeholder"></div>
+                            <div class="text-placeholder title"></div>
+                            <div class="text-placeholder merchant"></div>
+                            <div class="text-placeholder price"></div>
+                            <div class="button-placeholder"></div>
+                        </div>
+                    {% endfor %}
+                </section>
+
+                <!-- Pagination -->
+                <div id="pagination" class="pagination-container"></div>
+            </section>
+        </div>
+    </main>
+
+    {% include 'footer.html' %}
+
+    <script>
+        const query = "{{ query }}";
+        const initialPage = {{ page or 1 }};
+    </script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const toggleBtn = document.getElementById("toggle-filters");
+            const filters = document.querySelector(".filters");
+            toggleBtn.addEventListener("click", () => filters.classList.toggle("hidden"));
+        });
+    </script>
+</body>
+</html>
