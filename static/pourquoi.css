@@ -1,0 +1,80 @@
+/* --- Styles généraux --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    color: #eee;
+
+}
+
+main.content {
+    max-width: 1000px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+h2 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #BB86FC;
+}
+
+/* --- Sections 2 par 2 --- */
+section {
+
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.sections-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.why-us ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.why-us ul li {
+    padding: 8px 0;
+}
+
+.why-us ul li i {
+    color: #BB86FC;
+    margin-right: 10px;
+}
+
+/* --- Paragraphes --- */
+p {
+    font-size: 1.1em;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* Responsive : 1 colonne sur petits écrans */
+@media (max-width: 768px) {
+    .sections-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.8em;
+    }
+    h2 {
+        font-size: 1.2em;
+    }
+}
