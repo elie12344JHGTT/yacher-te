@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Nouveaux clients - Yacher Te</title>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='nouveaux_clients.css') }}?v=1">
+
+  <!-- FontAwesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon externe -->
+  <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/svgs/solid/star.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Navigation -->
+  {% include 'navbar.html' %}
+
+  <!-- Contenu principal -->
+  <main class="content">
+    <section class="intro">
+      <h1>Nouveaux clients</h1>
+      <p>
+        Bien que nous répertorions et indexions les produits de milliers de sites marchands,
+        nous sommes une société privée et nous ne vendons ni ne fabriquons aucun produit de consommation.
+        Twenga est un service indépendant d’informations et de comparaison.
+      </p>
+      <p>
+        Notre objectif est d’aider les clients à prendre de meilleures décisions d’achat.
+        Pour obtenir des informations sur un produit, les livraisons ou pour toute question technique,
+        veuillez contacter le site marchand correspondant.
+      </p>
+      <p>
+        Si vous avez la moindre demande concernant le fonctionnement de notre site, n'hésitez pas à remplir le formulaire ci-dessous.
+      </p>
+    </section>
+
+    <section class="contact">
+      <h2>Pour nous contacter</h2>
+      <form action="{{ url_for('nouveaux_clients_form') }}" method="POST">
+        <div class="form-group">
+
+          <input type="email" id="email" name="email" placeholder="Votre e-mail" required>
+        </div>
+
+        <div class="form-group">
+
+          <select id="subject" name="subject" required>
+            <option value="">Choisissez l’objet de votre demande</option>
+            <option value="informations">Etre référencé sur Yacher te</option>
+            <option value="technique">Problème technique</option>
+            <option value="autre">Poser une question</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+
+          <textarea id="message" name="message" rows="6" placeholder="Votre message" required></textarea>
+        </div>
+
+        <button type="submit">Nous écrire</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  {% include 'footer.html' %}
+</body>
+</html>

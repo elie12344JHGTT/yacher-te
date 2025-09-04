@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Comment fonctionne Twenga ? - Yacher Te</title>
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='fonctionnement.css') }}?v=1">
+
+  <!-- FontAwesome pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Favicon externe -->
+  <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/svgs/solid/star.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Navigation -->
+  {% include 'navbar.html' %}
+
+  <!-- Contenu principal -->
+  <main class="content">
+    <section class="intro">
+      <h1>Comment fonctionne Yacher te ?</h1>
+    </section>
+
+    <section class="marchands">
+      <h2>Marchands référencés sur Yacher te</h2>
+      <p>
+        Yacher te est une plateforme de comparaison de prix qui présente des offres de marchands partenaires,
+          référencés à titre payant.
+        Les offres des marchands partenaires portent la mention <strong>“annonce”</strong>.
+      </p>
+      <p>Les informations affichées sont fournies par nos marchands partenaires.</p>
+    </section>
+
+    <section class="resultats">
+      <h2>Présentation des résultats de votre recherche</h2>
+      <p>
+        Nous référençons régulièrement de nouvelles offres pour vous proposer le maximum de choix,
+          néanmoins les résultats affichés ne reflètent pas l'intégralité des offres disponibles sur le marché.
+      </p>
+      <p>
+        Twenga présente par défaut les offres par ordre de pertinence.
+          Le tri par pertinence combine plusieurs facteurs qui permettent d'afficher en haut des résultats de recherche les produits qui correspondent le mieux à ce que vous recherchez :
+          proximité sémantique entre vos termes et la désignation des offres, catégorie, marque et revendeur.
+          La qualité des informations fournies par nos partenaires influence également le classement.
+          Les produits disposant d’une photographie de qualité sont davantage mis en avant.
+          Les offres des marchands partenaires qui nous rémunèrent peuvent bénéficier d’un affichage prioritaire.
+      </p>
+      <p>
+        Vous pouvez également trier les résultats par prix TTC totaux :
+          du moins cher au plus cher ou du plus cher au moins cher.
+      </p>
+    </section>
+
+    <section class="prix">
+      <h2>Prix affichés</h2>
+      <p>
+        Yacher te fait apparaître pour chaque offre de produit le prix TTC, le coût de la livraison et le prix total.
+          Les prix affichés sont ceux fournis par nos marchands partenaires.
+      </p>
+      <p>
+        Pensez néanmoins à vérifier les garanties et conditions commerciales sur les sites des marchands avant de finaliser votre commande.
+      </p>
+    </section>
+
+    <section class="actualisation">
+      <h2>Actualisation des prix</h2>
+      <p>
+        Les prix des produits sont mis à jour au moins une fois par jour, 7 jours sur 7.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  {% include 'footer.html' %}
+</body>
+</html>
