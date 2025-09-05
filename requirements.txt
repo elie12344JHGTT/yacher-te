@@ -1,5 +1,6 @@
-flask
-gunicorn
-playwright
-beautifulsoup4
-requests
+flask==3.0.3
+requests==2.32.3
+beautifulsoup4==4.12.3
+lxml==4.9.3
+playwright==1.47.0
+gunicorn==22.0.0
