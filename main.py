@@ -1,3 +1,4 @@
+
 import asyncio
 import json
 from flask import Flask, render_template, request, redirect, url_for, flash, jsonify
@@ -6,6 +7,8 @@ from playwright.async_api import async_playwright
 from scraper.ebay_scraper import search_ebay
 from scraper.kikuu_scraper import search_kikuu
 from scraper.search_banggood import search_banggood
+import os
+app.secret_key = os.getenv("FLASK_SECRET_KEY", "fallback_secret")
 
 app = Flask(__name__)
 app.secret_key = "super_secret_key"
@@ -124,3 +127,4 @@ def nouveaux_clients_form():
 
 if __name__ == "__main__":
     app.run(debug=True, threaded=True)
+
