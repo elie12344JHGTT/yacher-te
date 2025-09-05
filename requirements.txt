@@ -1,7 +1,5 @@
-flask==3.0.3
-requests==2.32.3
-beautifulsoup4==4.12.3
-lxml==4.9.3
-playwright==1.47.0
-gunicorn==22.0.0
-greenlet==2.0.2
+Flask>=2.3
+requests>=2.31
+beautifulsoup4>=4.12
+lxml>=4.9.3   # version compilée
+playwright>=1.43
